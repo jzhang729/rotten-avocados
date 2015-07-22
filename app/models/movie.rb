@@ -22,11 +22,7 @@ class Movie < ActiveRecord::Base
   validate :release_date_is_in_the_future
 
   def review_average
-    unless reviews.size > 0
-      reviews.sum(:rating_out_of_ten)/reviews.size
-    else
-      errors.add(base: "There are no reviews")
-    end
+    reviews.size > 0 ? reviews.sum(:rating_out_of_ten)/reviews.size : 0
   end
 
 protected
