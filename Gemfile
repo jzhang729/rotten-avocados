@@ -41,4 +41,5 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'rmagick'
 gem 'carrierwave'
 gem 'pry'
-
+gem 'tux'
+gem 'kaminari'
