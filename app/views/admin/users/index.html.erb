@@ -1,3 +1,9 @@
+<%= link_to "Back to all movies", movies_path %><br />
+
+<%= paginate @users %>
+
 <% @users.each do |user| %>
-  <p><%= "#{user.firstname} #{user.lastname} - #{user.email} - #{user.admin}" %></p>
+  <p><%= "#{user.firstname} #{user.lastname} - #{user.email} - #{user.admin}" %><br />
+  <%= link_to "#{user.firstname} #{user.lastname}", admin_user_path(user) %></p>
 <% end %>
+
