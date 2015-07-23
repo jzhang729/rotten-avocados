@@ -3,7 +3,42 @@
 <%= paginate @users %>
 
 <% @users.each do |user| %>
-  <p><%= "#{user.firstname} #{user.lastname} - #{user.email} - #{user.admin}" %><br />
-  <%= link_to "#{user.firstname} #{user.lastname}", admin_user_path(user) %></p>
+  <p><%= link_to "#{user.firstname} #{user.lastname}", admin_user_path(user) %> - <%= link_to "delete", admin_user_path(user), method: :delete, confirm: "You sure?" %></p> 
 <% end %>
+
+<h1>Create a New User</h1>
+    <%= form_for @user, url: admin_users_path do |f| %>
+      <% if @user.errors.any? %>
+        <div>
+          <%= pluralize(@user.errors.count, "error") %> prevented the account from being created:
+          <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div>
+        <%= f.label "email" %><br>
+        <%= f.text_field "email" %>
+      </div>
+      <div>
+        <%= f.label "firstname", "First Name" %><br>
+        <%= f.text_field "firstname" %>
+      </div>
+      <div>
+        <%= f.label "lastname", "Last Name" %><br>
+        <%= f.text_field "lastname" %>
+      </div>
+      <div>
+        <%= f.label "password" %><br>
+        <%= f.password_field "password" %>
+      </div>
+      <div>
+        <%= f.label "password_confirmation" %><br>
+        <%= f.password_field "password_confirmation" %>
+      </div>
+      <div><%= f.submit "Submit" %></div>
+    <% end %>
+
 

@@ -1,8 +1,9 @@
 class Admin::UsersController < ApplicationController
 
-  before_filter :restrict_access
+  before_filter :restrict_access, :require_admin
 
   def index
+    @user = User.new
     @users = User.order(:firstname).page(params[:page]).per(5)
   end
 
@@ -14,8 +15,7 @@ class Admin::UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      session[:user_id] = @user.id
-      redirect_to movies_path, notice: "Welcome aboard, #{@user.firstname}!"
+      redirect_to movies_path
     else
       render :new
     end
@@ -23,6 +23,12 @@ class Admin::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to admin_users_path, notice: "User ID #{@user.id} deleted"
   end
 
   protected
