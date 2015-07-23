@@ -42,4 +42,4 @@ gem 'rmagick'
 gem 'carrierwave'
 gem 'pry'
 gem 'tux'
-
+gem 'kaminari'

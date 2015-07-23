@@ -3,7 +3,7 @@ class Admin::UsersController < ApplicationController
   before_filter :restrict_access
 
   def index
-    @users = User.all
+    @users = User.order(:firstname).page(params[:page]).per(5)
   end
 
   def new
@@ -19,6 +19,10 @@ class Admin::UsersController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
 
   protected
