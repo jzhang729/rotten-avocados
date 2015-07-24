@@ -42,6 +42,19 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
 
+  def search
+    @movies = Movie.search(params[:query]).page(params[:page]).per(5)
+    case params[:duration]
+    when "1"
+      @movies = @movies.runtime_less_than(90)
+    when "2"
+      @movies = @movies.runtime_less_than(120).runtime_greater_than(90)
+    when "3"
+      @movies = @movies.runtime_greater_than(120)
+    end
+    @movies
+  end
+
   protected
 
   def movie_params
