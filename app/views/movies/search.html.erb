@@ -1,0 +1,6 @@
+<h1>Search Results</h1>
+<% @movies.each do |movie| %>
+<p><%= movie.title %></p>
+<p><%= movie.director %></p>
+<p><%= movie.runtime_in_minutes %></p>
+<% end %>
