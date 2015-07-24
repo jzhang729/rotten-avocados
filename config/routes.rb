@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   get 'admin/switch_to_user/:id' => 'admin/users#switch_to_user', as: :switch
   get 'admin/switch_back' => 'admin/users#switch_back_to_admin', as: :return
+  get 'search' => 'movies#search', as: :search
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
