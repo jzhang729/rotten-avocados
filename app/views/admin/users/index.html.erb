@@ -3,7 +3,7 @@
 <%= paginate @users %>
 
 <% @users.each do |user| %>
-  <p><%= link_to "#{user.firstname} #{user.lastname}", admin_user_path(user) %> - <%= link_to "delete", admin_user_path(user), method: :delete, confirm: "You sure?" %></p> 
+  <p><%= link_to "#{user.firstname} #{user.lastname}", admin_user_path(user) %> - <%= link_to "delete", admin_user_path(user), method: :delete %></p> 
 <% end %>
 
 <h1>Create a New User</h1>
@@ -37,6 +37,10 @@
       <div>
         <%= f.label "password_confirmation" %><br>
         <%= f.password_field "password_confirmation" %>
+      </div>
+      <div>
+        <%= f.label "admin?" %><br>
+        <%= f.check_box :admin %>
       </div>
       <div><%= f.submit "Submit" %></div>
     <% end %>

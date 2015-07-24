@@ -1,5 +1,8 @@
 <p><%= link_to "Back to All Users", admin_users_path %></p>
 <h1><%= @user.firstname %> <%= @user.lastname %></h1>
 <p>Email: <%= @user.email %></p>
+<p>Admin: <%= @user.admin %></p>
 <p>Created at: <%= @user.created_at %></p>
 <p>Updated at: <%= @user.updated_at %></p>
+<p><%= link_to "Make Admin", edit_admin_user_path %></p>
+<p><%= link_to "Log in as #{@user.firstname}", switch_path(@user.id) %></p>

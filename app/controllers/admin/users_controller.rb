@@ -1,6 +1,7 @@
 class Admin::UsersController < ApplicationController
 
-  before_filter :restrict_access, :require_admin
+  before_filter :restrict_access
+  before_filter :require_admin , except: [:switch_back_to_admin]
 
   def index
     @user = User.new
@@ -21,6 +22,12 @@ class Admin::UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(params[:id])
+    @user.update(admin:1)
+    redirect_to admin_users_path, notice: "#{@user.firstname} is now an admin"
+  end
+
   def show
     @user = User.find(params[:id])
   end
@@ -31,6 +38,17 @@ class Admin::UsersController < ApplicationController
     redirect_to admin_users_path, notice: "User ID #{@user.id} deleted"
   end
 
+  def switch_to_user
+    session[:admin_id] = current_user.id
+    session[:user_id] = params[:id]
+    redirect_to root_path
+  end
+
+  def switch_back_to_admin
+    session[:user_id] = session[:admin_id]
+    redirect_to admin_users_path
+  end
+  
   protected
 
   def user_params
