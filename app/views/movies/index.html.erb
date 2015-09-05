@@ -1,23 +1,26 @@
-<h1>Rotten Mangoes</h1>
-<ul class="nav nav-pills">
-  <li role="presentation"><%= link_to "Submit a movie!", new_movie_path %></li>
-</ul>
-
-<%= render 'search_form' %>
-
-<hr>
-<div class="container">
-  <div class="row">
-    <div class="col-md-4 movie-box">
-      <% @movies.each do |movie| %>
-        <%= link_to image_tag(movie.poster_image_url), movie_path(movie), class: "movie-img" %>
-        <h2><%= link_to movie.title, movie_path(movie) %></h2>
-        <h3><%= formatted_date(movie.release_date) %></h3>
-        <h4>Director: <%= movie.director %></h4>
-        <h4>Duration: <%= movie.runtime_in_minutes %> minutes</h4>
-        <p><%= movie.description %></p>
-        <p>Average Moving Rating: <%= movie.review_average %>/10</p>
-      <% end %>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <%= render 'search_form' %>
+      </div>
     </div>
+  </div>
+
+<div class="container-fluid movies">
+  <div class="media movie-box">
+    <% @movies.each do |movie| %>
+      <div class="media-left">
+        <%= link_to image_tag(movie.poster_image_url), movie_path(movie), class: "movie-img" %>
+      </div>
+      <div class="media-body">
+        <ul>
+          <li><strong>Title:</strong> <%= link_to movie.title, movie_path(movie) %></li>
+          <li><strong>Release Date:</strong> <%= formatted_date(movie.release_date) %></li>
+          <li><strong>Director:</strong> <%= movie.director %></li>
+          <li><strong>Duration:</strong> <%= movie.runtime_in_minutes %> minutes</li>
+          <li><strong>Description:</strong> <%= movie.description %></li>
+          <li><strong>Average Moving Rating:</strong> <%= movie.review_average %>/10</li>
+        </ul>
+    <% end %>
   </div>
 </div>

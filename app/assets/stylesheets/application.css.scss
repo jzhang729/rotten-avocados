@@ -1,3 +1,7 @@
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
 /* 
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -14,16 +18,44 @@
 *= require_tree .
 */
 
-@import "bootstrap-sprockets";
-@import "bootstrap";
-
 .movie-box{
-  width: 300px;
-  border: 1px solid #000000;
-
+  width: 80%;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px 0px;
+  padding: 10px;
 }
 
-.movie-img{
+body {
+  margin-top: 70px;
+  padding: 20px;
+}
+
+.nav li {
+  font-size: 10pt;
+}
+
+.expanded li{
+  display: block;
+  line-height: 50px;
+  padding: 0px 10px;
+  font-size: 10pt;
+}
+
+.movies {
+  display: block;
+  margin: 20px 0px;
+}
+
+input [type='text'] {
+  margin: 0px 10px;
   border-radius: 10px;
-  box-shadow: 10px 10px 5px #888888;
+  border-width: 1px;
+  border-style: double;
 }
+
+footer{
+  margin: 20px 0px;
+}
+
+
