@@ -1,6 +1,6 @@
-<%= link_to "Back to all movies", movies_path %><br />
-<h1>Sign Up</h1>
-    <%= form_for @user do |f| %>
+<div class="movie-box">
+  <h2>Sign Up</h2>
+    <%= form_for @user, class: "form-style" do |f| %>
       <% if @user.errors.any? %>
         <div>
           <%= pluralize(@user.errors.count, "error") %> prevented the account from being created:
@@ -33,3 +33,4 @@
       </div>  
       <div><%= f.submit "Submit" %></div>
     <% end %>
+</div>
