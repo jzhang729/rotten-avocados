@@ -1,19 +1,23 @@
-<div class="header">
-
-  <h1 class="pull-left">Rotten Mangoes</h1>
-
-  <% flash.each do |key, value| %>
-    <span class="pull-left"><%= content_tag(:div, value) %></span>
-  <% end %>
-
+<div class="login-signup">
   <% if current_user %>
-    <span>Hi, <%= current_user.firstname %></span>
+    <span class="pull-right">Hi, <%= current_user.firstname %></span>
   <% else %>
     <%= link_to "Log In", new_session_path, class: "pull-right" %>
     <%= link_to "Sign Up", new_user_path, class: "pull-right" %>
   <% end %>
 
   <% if current_user %>  
-    <%= link_to "Log out", session_path("current"), method: :delete %>
+    <%= link_to "Log out", session_path("current"), method: :delete, class: "pull-right" %>
   <% end %> 
+</div>
+
+<div class="header">
+  <h1 class="pull-left"><%= link_to "Rotten Avacados", movies_path %></h1>
+  <%= image_tag "logo.png", class: "pull-right" %>
+
+  <% flash.each do |key, value| %>
+    <span class="pull-left"><%= content_tag(:div, value) %></span>
+  <% end %>
+
+
 </div>

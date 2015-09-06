@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome";
 
 /* 
  * This is a manifest file that'll be compiled into application.css, which will include all the files
@@ -15,6 +16,7 @@
 
 *= require_self
 *= require_tree .
+*= require font-awesome
 */
 
 // As hex codes */
@@ -52,6 +54,7 @@ $font-size-primary: 10pt;
     size: $font-size-primary;
   }
   color: $rgba-primary-4;
+  padding: 0px 10px 10px 10px;
 }
 
 body, html {
@@ -59,10 +62,20 @@ body, html {
   padding: 0px !important;
 }
 
-.header {
-  background-color: $rgba-primary-2;
+.login-signup {
   width: 90%;
-  min-height: 50px;
+  margin: auto;
+  padding: 10px;
+
+  a {
+    @include a-style;
+  }
+}
+
+.header {
+  background-color: $rgba-primary-3;
+  width: 90%;
+  min-height: 75px;
   margin: 10px auto;
   padding: 10px;
 }
@@ -75,21 +88,35 @@ body, html {
 }
 
 .header h1 {
-  display: inline;
   margin: 0px;
   padding: 0px;
-  vertical-align: center !important;
   font-size: 22pt;
+  color: rgba(255,255,255,1);
+  a{
+    color: rgba(255,255,255,1);
+
+    &:hover{
+      color: rgba(255,255,255,1); 
+      text-decoration: none;     
+    }    
+  }
 }
 
-ul {
-  margin: 0px;
-  padding: 0px;
+.header > img {
+  display: inline;
 }
 
-li {
-  @include li-style;
+.icon {
+  margin: 0 0 0 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: $color-primary-3;
 }
+
+i {
+  color: rgba(255,255,255,.8);
+}
+
 
 .main-content {
   width: 90%;
@@ -101,21 +128,38 @@ li {
 }
 
 .movie-box {
-  flex: 0 1 40%;
+  flex: 1 1 250px;
+  min-width: 250px;
   background-color: $rgba-primary-1;
   padding: 10px;
   margin: 10px;
 }
 
 .movie-title {
-  display: block;
+  display: inline;
   text-align: center;
   font-family: $font-family-primary;
   font-size: 16pt;
+  text-transform: uppercase;
+  vertical-align: top;
 }
 
 .movie-img {
-  text-align: center;
+  display: inline;
+}
+
+.movie-box > ul {
+  margin: 0px;
+  padding: 0px;
+  display: inline;
+}
+
+.movie-box li {
+  @include li-style;
+}
+
+.form-style * {
+  margin: 0px 0px 5px 0px;
 }
 
 .search {
@@ -127,6 +171,30 @@ li {
   padding: 10px;
 }
 
+.search * {
+  display: inline;
+  margin: 5px;
+}
+
+input, select, textarea {
+  background-color: $color-primary-3;
+  color: rgba(255,255,255,0.8);
+  border: 1px #000 solid;
+}
+
+input#query {
+  width: 60%;
+}
+
+select#duration {
+  width: 30%;
+}
+
+input[type=submit] {
+  color: rgba(255,255,255,0.8);
+  background-color: $rgba-primary-4;
+  border-radius: 10px;
+}
 
 body {
   margin-top: 70px;
@@ -137,21 +205,6 @@ body {
 img {
   border-radius: 10px;
 }
-
-.expanded li{
-  display: block;
-  line-height: 50px;
-  padding: 0px 10px;
-  font-size: 10pt;
-}
-
-input, select {
-  border-radius: 10px;
-  padding: 5px;
-  background-color: $color-primary-1;
-  border: 1px #000 outset;
-}
-
 
 footer{
   margin: 20px 0px;
