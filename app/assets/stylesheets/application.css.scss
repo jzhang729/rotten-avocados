@@ -17,21 +17,125 @@
 *= require_tree .
 */
 
-.movie-box{
-  width: 80%;
-  border-style: solid;
-  border-color: #000000;
-  border-width: 1px 0px;
+// As hex codes */
+
+$color-primary-0: #2D882D;  // Main Primary color */
+$color-primary-1: #88CC88;
+$color-primary-2: #55AA55;
+$color-primary-3: #116611;
+$color-primary-4: #004400;
+
+// As RGBa codes */
+
+$rgba-primary-0: rgba( 45,136, 45,0.5); // Main Primary color */
+$rgba-primary-1: rgba(136,204,136,1);
+$rgba-primary-2: rgba( 85,170, 85,1);
+$rgba-primary-3: rgba( 17,102, 17,1);
+$rgba-primary-4: rgba(  0, 68,  0,1);
+
+$font-family-primary: arial;
+$font-size-primary: 10pt;
+
+@mixin li-style {
+  font: {
+    family: $font-family-primary; 
+    size: $font-size-primary;
+  }
+  list-style-type: none;
+  margin: 5px 0px;
+}
+
+@mixin a-style {
+  font: {
+    weight: bold;
+    family: $font-family-primary;
+    size: $font-size-primary;
+  }
+  color: $rgba-primary-4;
+}
+
+body, html {
+  margin: 0px !important;
+  padding: 0px !important;
+}
+
+.header {
+  background-color: $rgba-primary-2;
+  width: 90%;
+  min-height: 50px;
+  margin: 10px auto;
   padding: 10px;
 }
+
+.header > a, span {
+  vertical-align: center;
+  display: inline;
+  padding: 5px 10px;
+  @include a-style;
+}
+
+.header h1 {
+  display: inline;
+  margin: 0px;
+  padding: 0px;
+  vertical-align: center !important;
+  font-size: 22pt;
+}
+
+ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+li {
+  @include li-style;
+}
+
+.main-content {
+  width: 90%;
+  margin: auto;
+  padding: 10px;
+  background-color: $rgba-primary-2;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.movie-box {
+  flex: 0 1 40%;
+  background-color: $rgba-primary-1;
+  padding: 10px;
+  margin: 10px;
+}
+
+.movie-title {
+  display: block;
+  text-align: center;
+  font-family: $font-family-primary;
+  font-size: 16pt;
+}
+
+.movie-img {
+  text-align: center;
+}
+
+.search {
+  flex: 1 1 100%;
+  align-items: center;
+  background-color: $rgba-primary-1;
+  display: block;
+  margin: 10px;
+  padding: 10px;
+}
+
 
 body {
   margin-top: 70px;
   padding: 20px;
+  background-color: #fff;
 }
 
-.nav li {
-  font-size: 10pt;
+img {
+  border-radius: 10px;
 }
 
 .expanded li{
@@ -41,17 +145,13 @@ body {
   font-size: 10pt;
 }
 
-.movies {
-  display: block;
-  margin: 20px 0px;
+input, select {
+  border-radius: 10px;
+  padding: 5px;
+  background-color: $color-primary-1;
+  border: 1px #000 outset;
 }
 
-input [type='text'] {
-  margin: 0px 10px;
-  border-radius: 10px;
-  border-width: 1px;
-  border-style: double;
-}
 
 footer{
   margin: 20px 0px;
