@@ -1,26 +1,24 @@
-  <div class="container">
+<%= link_to new_movie_path do %>
+  <i class="fa fa-plus icon"> Add a New Movie</i>
+<% end %>
+
+<%= render 'search_form' %>
+  <% @movies.each do |movie| %>
     <div class="row">
-      <div class="col-xs-12">
-        <%= render 'search_form' %>
+      <div class="container-fluid">
+        <div class="movie-box col-md-3">
+          <%= link_to image_tag(movie.poster_image_url.thumb), movie_path(movie), class: "movie-img" %>
+          <span class="movie-title"><%= movie.title %></span>
+          <ul>
+            <li><strong>Release Date:</strong> <%= formatted_date(movie.release_date) %></li>
+            <li><strong>Director:</strong> <%= movie.director %></li>
+            <li><strong>Duration:</strong> <%= movie.runtime_in_minutes %> minutes</li>
+            <li><strong>Description:</strong> <%= movie.description %></li>
+            <li><strong>Average Moving Rating:</strong> <%= movie.review_average %>/10</li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
 
-<div class="container-fluid movies">
-  <div class="media movie-box">
-    <% @movies.each do |movie| %>
-      <div class="media-left">
-        <%= link_to image_tag(movie.poster_image_url), movie_path(movie), class: "movie-img" %>
-      </div>
-      <div class="media-body">
-        <ul>
-          <li><strong>Title:</strong> <%= link_to movie.title, movie_path(movie) %></li>
-          <li><strong>Release Date:</strong> <%= formatted_date(movie.release_date) %></li>
-          <li><strong>Director:</strong> <%= movie.director %></li>
-          <li><strong>Duration:</strong> <%= movie.runtime_in_minutes %> minutes</li>
-          <li><strong>Description:</strong> <%= movie.description %></li>
-          <li><strong>Average Moving Rating:</strong> <%= movie.review_average %>/10</li>
-        </ul>
-    <% end %>
-  </div>
-</div>
+<!-- # <%= link_to "Admin User Management", admin_users_path %>  -->

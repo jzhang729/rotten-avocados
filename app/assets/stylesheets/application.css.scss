@@ -1,6 +1,6 @@
-
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome";
 
 /* 
  * This is a manifest file that'll be compiled into application.css, which will include all the files
@@ -16,42 +16,194 @@
 
 *= require_self
 *= require_tree .
+*= require font-awesome
 */
 
-.movie-box{
-  width: 80%;
-  border-style: solid;
-  border-color: #000000;
-  border-width: 1px 0px;
+// As hex codes */
+
+$color-primary-0: #2D882D;  // Main Primary color */
+$color-primary-1: #88CC88;
+$color-primary-2: #55AA55;
+$color-primary-3: #116611;
+$color-primary-4: #004400;
+
+// As RGBa codes */
+
+$rgba-primary-0: rgba( 45,136, 45,0.5); // Main Primary color */
+$rgba-primary-1: rgba(136,204,136,1);
+$rgba-primary-2: rgba( 85,170, 85,1);
+$rgba-primary-3: rgba( 17,102, 17,1);
+$rgba-primary-4: rgba(  0, 68,  0,1);
+
+$font-family-primary: arial;
+$font-size-primary: 10pt;
+
+@mixin li-style {
+  font: {
+    family: $font-family-primary; 
+    size: $font-size-primary;
+  }
+  list-style-type: none;
+  margin: 5px 0px;
+}
+
+@mixin a-style {
+  font: {
+    weight: bold;
+    family: $font-family-primary;
+    size: $font-size-primary;
+  }
+  color: $rgba-primary-4;
+  padding: 0px 10px 10px 10px;
+}
+
+body, html {
+  margin: 0px !important;
+  padding: 0px !important;
+}
+
+.login-signup {
+  width: 90%;
+  margin: auto;
   padding: 10px;
+
+  a {
+    @include a-style;
+  }
+}
+
+.header {
+  background-color: $rgba-primary-3;
+  width: 90%;
+  min-height: 75px;
+  margin: 10px auto;
+  padding: 10px;
+}
+
+.header > a, span {
+  vertical-align: center;
+  display: inline;
+  padding: 5px 10px;
+  @include a-style;
+}
+
+.header h1 {
+  margin: 0px;
+  padding: 0px;
+  font-size: 22pt;
+  color: rgba(255,255,255,1);
+  a{
+    color: rgba(255,255,255,1);
+
+    &:hover{
+      color: rgba(255,255,255,1); 
+      text-decoration: none;     
+    }    
+  }
+}
+
+.header > img {
+  display: inline;
+}
+
+.icon {
+  margin: 0 0 0 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: $color-primary-3;
+}
+
+i {
+  color: rgba(255,255,255,.8);
+}
+
+
+.main-content {
+  width: 90%;
+  margin: auto;
+  padding: 10px;
+  background-color: $rgba-primary-2;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.movie-box {
+  flex: 1 1 250px;
+  min-width: 250px;
+  background-color: $rgba-primary-1;
+  padding: 10px;
+  margin: 10px;
+}
+
+.movie-title {
+  display: block;
+  text-align: center;
+  font-family: $font-family-primary;
+  font-size: 16pt;
+  text-transform: uppercase;
+  vertical-align: top;
+}
+
+.movie-img {
+  display: inline;
+}
+
+.movie-box > ul {
+  margin: 0px;
+  padding: 0px;
+  display: inline;
+}
+
+.movie-box li {
+  @include li-style;
+}
+
+.form-style * {
+  margin: 0px 0px 5px 0px;
+}
+
+.search {
+  flex: 1 1 100%;
+  align-items: center;
+  background-color: $rgba-primary-1;
+  display: block;
+  margin: 10px;
+  padding: 10px;
+}
+
+.search * {
+  display: inline;
+  margin: 5px;
+}
+
+input, select, textarea {
+  background-color: $color-primary-3;
+  color: rgba(255,255,255,0.8);
+  border: 1px #000 solid;
+}
+
+input#query {
+  width: 60%;
+}
+
+select#duration {
+  width: 30%;
+}
+
+input[type=submit] {
+  color: rgba(255,255,255,0.8);
+  background-color: $rgba-primary-4;
+  border-radius: 10px;
 }
 
 body {
   margin-top: 70px;
   padding: 20px;
+  background-color: #fff;
 }
 
-.nav li {
-  font-size: 10pt;
-}
-
-.expanded li{
-  display: block;
-  line-height: 50px;
-  padding: 0px 10px;
-  font-size: 10pt;
-}
-
-.movies {
-  display: block;
-  margin: 20px 0px;
-}
-
-input [type='text'] {
-  margin: 0px 10px;
+img {
   border-radius: 10px;
-  border-width: 1px;
-  border-style: double;
 }
 
 footer{
