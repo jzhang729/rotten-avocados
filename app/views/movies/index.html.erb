@@ -7,8 +7,8 @@
     <div class="row">
       <div class="container-fluid">
         <div class="movie-box col-md-3">
-          <%= link_to image_tag(movie.poster_image_url.thumb), movie_path(movie), class: "movie-img" %>
-          <span class="movie-title"><%= movie.title %></span>
+          <%= link_to image_tag(movie.poster_image_url.thumb, class: "center-block"), movie_path(movie) %>
+          <h2><%= link_to movie.title, movie_path(movie) %></h2>
           <ul>
             <li><strong>Release Date:</strong> <%= formatted_date(movie.release_date) %></li>
             <li><strong>Director:</strong> <%= movie.director %></li>

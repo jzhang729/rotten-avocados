@@ -29,7 +29,7 @@ $color-primary-4: #004400;
 
 // As RGBa codes */
 
-$rgba-primary-0: rgba( 45,136, 45,0.5); // Main Primary color */
+$rgba-primary-0: rgba( 45,136, 45,1); // Main Primary color */
 $rgba-primary-1: rgba(136,204,136,1);
 $rgba-primary-2: rgba( 85,170, 85,1);
 $rgba-primary-3: rgba( 17,102, 17,1);
@@ -37,6 +37,14 @@ $rgba-primary-4: rgba(  0, 68,  0,1);
 
 $font-family-primary: arial;
 $font-size-primary: 10pt;
+
+@mixin default-font {
+  color: #000;
+  font: {
+    family: arial;
+    size: 10pt;
+  }
+}
 
 @mixin li-style {
   font: {
@@ -49,27 +57,37 @@ $font-size-primary: 10pt;
 
 @mixin a-style {
   font: {
-    weight: bold;
-    family: $font-family-primary;
-    size: $font-size-primary;
+    weight: inherit;
+    family: inherit;
+    size: inherit;
   }
-  color: $rgba-primary-4;
-  padding: 0px 10px 10px 10px;
+  color: inherit;
 }
 
 body, html {
   margin: 0px !important;
   padding: 0px !important;
+  @include default-font;
 }
 
 .login-signup {
   width: 90%;
-  margin: auto;
-  padding: 10px;
+  min-height: 20px;
+  margin: 10px;
 
-  a {
-    @include a-style;
+  span {
+    color: #000;
+    font-weight: bold;
   }
+
+  a, a:hover{
+    color: $rgba-primary-0;
+    font-weight: bold;
+  }
+}
+
+.login-signup * {
+  margin: 0px 15px;
 }
 
 .header {
@@ -87,19 +105,13 @@ body, html {
   @include a-style;
 }
 
-.header h1 {
+h1 {
   margin: 0px;
   padding: 0px;
   font-size: 22pt;
   color: rgba(255,255,255,1);
-  a{
-    color: rgba(255,255,255,1);
-
-    &:hover{
-      color: rgba(255,255,255,1); 
-      text-decoration: none;     
-    }    
-  }
+  position: relative;
+  top: 10px;
 }
 
 .header > img {
@@ -117,7 +129,6 @@ i {
   color: rgba(255,255,255,.8);
 }
 
-
 .main-content {
   width: 90%;
   margin: auto;
@@ -128,24 +139,20 @@ i {
 }
 
 .movie-box {
-  flex: 1 1 250px;
-  min-width: 250px;
+  flex: 1 1 350px;
+  min-width: 350px;
   background-color: $rgba-primary-1;
   padding: 10px;
   margin: 10px;
 }
 
-.movie-title {
+h2 {
+  color: $rgba-primary-4;
+  font-weight: bold;
   display: block;
-  text-align: center;
-  font-family: $font-family-primary;
   font-size: 16pt;
   text-transform: uppercase;
   vertical-align: top;
-}
-
-.movie-img {
-  display: inline;
 }
 
 .movie-box > ul {
@@ -156,6 +163,17 @@ i {
 
 .movie-box li {
   @include li-style;
+}
+
+.movie-menu * {
+  background-color: $rgba-primary-3;
+  width: 250px;
+  border-radius: 10px;
+  color: #000;
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+  font-size: 14pt;
 }
 
 .form-style * {
@@ -177,6 +195,7 @@ i {
 }
 
 input, select, textarea {
+  width: 25%;
   background-color: $color-primary-3;
   color: rgba(255,255,255,0.8);
   border: 1px #000 solid;
@@ -208,6 +227,10 @@ img {
 
 footer{
   margin: 20px 0px;
+}
+
+.link-icon {
+  display: inline;
 }
 
 

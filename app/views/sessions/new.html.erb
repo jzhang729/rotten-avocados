@@ -1,11 +1,12 @@
 <div class="movie-box">
+<h2>Log In</h2>
   <%= form_tag session_path, class: "form-style" do %>
     <div>
-      <%= label_tag "email" %><br/>
-      <%= text_field_tag "email" %>
+      <%= label_tag "Email" %><br/>
+      <%= text_field_tag :email %>
     </div>
     <div>
-      <%= label_tag :password %><br/>
+      <%= label_tag "Password" %><br/>
       <%= password_field_tag :password %>
     </div>
     <div><%= submit_tag "Log In" %></div>
