@@ -4,9 +4,8 @@
 
 <%= render 'search_form' %>
   <% @movies.each do |movie| %>
-    <div class="row">
-      <div class="container-fluid">
-        <div class="movie-box col-md-3">
+ 
+        <div class="movie-box">
           <%= link_to image_tag(movie.poster_image_url.thumb, class: "center-block"), movie_path(movie) %>
           <h2><%= link_to movie.title, movie_path(movie) %></h2>
           <ul>
@@ -17,8 +16,7 @@
             <li><strong>Average Moving Rating:</strong> <%= movie.review_average %>/10</li>
           </ul>
         </div>
-      </div>
-    </div>
+     
   <% end %>
 
 <!-- # <%= link_to "Admin User Management", admin_users_path %>  -->
