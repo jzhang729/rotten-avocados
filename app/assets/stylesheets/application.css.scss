@@ -86,6 +86,20 @@ body, html {
   }
 }
 
+a, a:hover{
+    color: $rgba-primary-4;
+    font-weight: bold;
+  }
+
+h2 > a {
+  color: inherit;
+
+  &:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
 .login-signup * {
   margin: 0px 15px;
 }
@@ -96,6 +110,15 @@ body, html {
   min-height: 75px;
   margin: 10px auto;
   padding: 10px;
+}
+
+footer {
+  text-align: center;
+  background-color: $rgba-primary-3;
+  width: 90%;
+  margin: 10px auto;
+  padding: 10px;
+  color: #fff;
 }
 
 .header > a, span {
@@ -112,10 +135,20 @@ h1 {
   color: rgba(255,255,255,1);
   position: relative;
   top: 10px;
+
+  @media (max-width: 400px) {
+    font-size: 18pt;
+  }
 }
 
 .header > img {
   display: inline;
+}
+
+img#avocado{
+  @media (max-width: 580px) {
+    display: none;
+  }
 }
 
 .icon {
@@ -126,7 +159,8 @@ h1 {
 }
 
 i {
-  color: rgba(255,255,255,.8);
+  color: #fff;
+  font-weight: bold;
 }
 
 .main-content {
@@ -136,13 +170,26 @@ i {
   background-color: $rgba-primary-2;
   display: flex;
   flex-flow: row wrap;
+  justify-content: flex-start;
 }
 
 .movie-box {
-  flex: 1 1 350px;
+  flex: 0 1 350px;
   min-width: 350px;
   background-color: $rgba-primary-1;
   padding: 10px;
+  margin: 10px;
+
+  @media (max-width: 580px) {
+    flex: 1 1 200px;
+    min-width: 200px;
+  }
+}
+
+.content-box {
+  width: auto;
+  background-color: $rgba-primary-1;
+  padding: 20px;
   margin: 10px;
 }
 
@@ -155,6 +202,10 @@ h2 {
   vertical-align: top;
 }
 
+h3 {
+  font-size: 12pt;
+}
+
 .movie-box > ul {
   margin: 0px;
   padding: 0px;
@@ -165,26 +216,31 @@ h2 {
   @include li-style;
 }
 
-.movie-menu * {
-  background-color: $rgba-primary-3;
-  width: 250px;
-  border-radius: 10px;
-  color: #000;
-  text-align: center;
-  padding: 10px;
-  margin: 10px;
-  font-size: 14pt;
+.movie-menu {
+  margin: 0px;
+  padding: 0px;
 }
 
-.form-style * {
-  margin: 0px 0px 5px 0px;
+.movie-menu ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+.movie-menu li {
+  background-color: $rgba-primary-3;
+  border-radius: 5px;
+  color: #fff;
+  padding: 5px;
+  margin: 10px 5px 5px 5px;
+  font-size: 10pt;
+  min-width: 45px;
+  display: inline-block;
 }
 
 .search {
-  flex: 1 1 100%;
+  flex: 1 1 90%;
   align-items: center;
   background-color: $rgba-primary-1;
-  display: block;
   margin: 10px;
   padding: 10px;
 }
@@ -195,10 +251,14 @@ h2 {
 }
 
 input, select, textarea {
-  width: 25%;
+  width: 250px;
   background-color: $color-primary-3;
   color: rgba(255,255,255,0.8);
   border: 1px #000 solid;
+
+  @media (max-width: 580px) {
+    width: 80%;
+  }
 }
 
 input#query {
@@ -207,12 +267,19 @@ input#query {
 
 select#duration {
   width: 30%;
+  color: #fff;
+}
+
+input[type=text], input[type=password], input[type=date], input[type=file], input[type=number] {
+  margin-bottom: 10px;
+  color: #fff;
 }
 
 input[type=submit] {
-  color: rgba(255,255,255,0.8);
+  color: #fff;
   background-color: $rgba-primary-4;
   border-radius: 10px;
+  width: 60px;
 }
 
 body {
@@ -225,12 +292,15 @@ img {
   border-radius: 10px;
 }
 
-footer{
-  margin: 20px 0px;
-}
-
 .link-icon {
   display: inline;
 }
 
+.actual-img-size {
+  margin: 0px auto;
+  @media (max-width: 580px) {
+    width: 70%;
+    height:750%;
+  }
+}
 

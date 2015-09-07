@@ -1,32 +1,35 @@
-<div class="movie-box container">
+<div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-3">
-      <%= image_tag(@movie.poster_image_url) %>
-      <div class="movie-menu">
-        <i class="fa fa-pencil-square-o"> Write a Review</i>
+      <%= image_tag(@movie.poster_image_url, class: "actual-img-size") %>
+      <ul class="movie-menu">
         <%= link_to edit_movie_path(@movie) do %>
-          <i class="fa fa-pencil"> Edit Movie</i>
+          <li><i class="fa fa-pencil"> Edit Movie</i></li>
         <% end %>
         <%= link_to movie_path(@movie), method: :delete do %>
-          <i class="fa fa-trash-o"> Delete Movie</i>
+          <li><i class="fa fa-trash-o"> Delete Movie</i></li>
         <% end %>
-      </div>
+      </ul>
     </div>
     <div class="col-xs-12 col-md-2"></div>
     <div class="col-xs-12 col-md-7">
       <h2><%= @movie.title %></h2>
-          <h3><%= formatted_date(@movie.release_date) %></h3>
-          <h4>Dir. <%= @movie.director %> | <%= @movie.runtime_in_minutes %> minutes</h4>
+          <h3><strong>Release Date:</strong> <%= formatted_date(@movie.release_date) %></strong>
+          <h3><strong>Director:</strong> <%= @movie.director %> | <%= @movie.runtime_in_minutes %> minutes</h3>
+          <h3><strong>Description:</strong></h3>
           <p><%= @movie.description %></p>
-
-          <h3>Reviews of <em><%= @movie.title %></em></h3>
+          <h3><strong>User Reviews:</strong></h3>
           <% if current_user %>
             <% @movie.reviews.each do |review| %>
               <p><%= review.text %></p>
               <p><%= review.rating_out_of_ten %>/10</p>
               <small>- <%= review.user.full_name %></small><br/>
             <% end %>
-            <p><%= link_to "Write a review!", new_movie_review_path(@movie) %></p>
+              <ul class="movie-menu">
+                <%= link_to new_movie_review_path(@movie) do %> 
+                  <li><i class="fa fa-pencil-square-o"> Write a Review</i></li>
+                <% end %>
+              </ul>
           <% else %>
             <p>Please <%= link_to "log in", new_session_path %> to see reviews and add your own.</p> 
           <% end %>
@@ -34,4 +37,3 @@
   </div>
 </div>
 </div>
-
