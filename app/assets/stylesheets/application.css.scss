@@ -170,6 +170,7 @@ i {
   background-color: $rgba-primary-2;
   display: flex;
   flex-flow: row wrap;
+  justify-content: flex-start;
 }
 
 .movie-box {
@@ -183,6 +184,13 @@ i {
     flex: 1 1 200px;
     min-width: 200px;
   }
+}
+
+.content-box {
+  width: auto;
+  background-color: $rgba-primary-1;
+  padding: 20px;
+  margin: 10px;
 }
 
 h2 {
@@ -230,10 +238,9 @@ h3 {
 }
 
 .search {
-  flex: 1 1 100%;
+  flex: 1 1 90%;
   align-items: center;
   background-color: $rgba-primary-1;
-  display: block;
   margin: 10px;
   padding: 10px;
 }

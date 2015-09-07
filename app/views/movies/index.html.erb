@@ -4,19 +4,17 @@
 
 <%= render 'search_form' %>
   <% @movies.each do |movie| %>
- 
-        <div class="movie-box">
-          <%= link_to image_tag(movie.poster_image_url.thumb, class: "center-block"), movie_path(movie) %>
-          <h2><%= link_to movie.title, movie_path(movie) %></h2>
-          <ul>
-            <li><strong>Release Date:</strong> <%= formatted_date(movie.release_date) %></li>
-            <li><strong>Director:</strong> <%= movie.director %></li>
-            <li><strong>Duration:</strong> <%= movie.runtime_in_minutes %> minutes</li>
-            <li><strong>Description:</strong> <%= movie.description %></li>
-            <li><strong>Average Moving Rating:</strong> <%= movie.review_average %>/10</li>
-          </ul>
-        </div>
-     
+    <div class="movie-box">
+      <%= link_to image_tag(movie.poster_image_url.thumb, class: "center-block"), movie_path(movie) %>
+      <h2><%= link_to movie.title, movie_path(movie) %></h2>
+      <ul>
+        <li><strong>Release Date:</strong> <%= formatted_date(movie.release_date) %></li>
+        <li><strong>Director:</strong> <%= movie.director %></li>
+        <li><strong>Duration:</strong> <%= movie.runtime_in_minutes %> minutes</li>
+        <li><strong>Description:</strong> <%= movie.description %></li>
+        <li><strong>Average Moving Rating:</strong> <%= movie.review_average %>/10</li>
+      </ul>
+    </div>
   <% end %>
 
 <!-- # <%= link_to "Admin User Management", admin_users_path %>  -->

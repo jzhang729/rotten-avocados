@@ -1,6 +1,5 @@
-<div class="movie-box">
+<div class="content-box">
   <h2>New Review: <%= @movie.title %></h2>
-
   <%= form_for([@movie, @review], html:{class: "form-style"}) do |f| %>
     <% if @review.errors.any? %>
       <div>
@@ -12,7 +11,6 @@
         </ul>
       </div>
     <% end %>
-
     <div>
       <%= f.label "text" %><br>
       <%= f.text_area "text" %>
