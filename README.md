@@ -1,3 +1,11 @@
-Rotten Mangoes
+A movie review site inspired by the website RottenTomatoes.com.
 
-This is the example repo for Lighthouse Labs' second Rails app: Rotten Mangoes, inspired by Rotten Tomatoes.
+Back End Languages & Frameworks:
+
+- Ruby
+- Rails
+
+Front End Languages & Frameworks:
+
+- HTML
+- CSS/Bootstap
