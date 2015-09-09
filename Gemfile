@@ -43,11 +43,11 @@ gem 'kaminari'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'font-awesome-rails'
+gem 'execjs'
 
 group :development do
   gem 'sqlite3'
 end
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
 end
