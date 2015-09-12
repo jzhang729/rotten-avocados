@@ -24,7 +24,8 @@ class Movie < ActiveRecord::Base
   mount_uploader :poster_image_url, ImageUploader
 
   scope :runtime_greater_than, ->(length) {where("runtime_in_minutes > ?", length)}
-  scope :runtime_less_than, ->(length) {where("runtime_in_minutes < ?", length)}
+  scope :runtime_less_than_or_equal_to, ->(length) {where("runtime_in_minutes <= ?", length)}
+
   scope :search, ->(text) {where("lower(title || director) LIKE ? ", "%"+text.downcase+"%")}
 
   def review_average
