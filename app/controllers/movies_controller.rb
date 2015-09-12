@@ -46,13 +46,14 @@ class MoviesController < ApplicationController
     @movies = Movie.search(params[:query]).page(params[:page]).per(5)
     case params[:duration]
     when "1"
-      @movies = @movies.runtime_less_than(90)
+      @movies = @movies.runtime_less_than_or_equal_to(90)
     when "2"
-      @movies = @movies.runtime_less_than(120).runtime_greater_than(90)
+      @movies = @movies.runtime_less_than_or_equal_to(120).runtime_greater_than(90)
     when "3"
       @movies = @movies.runtime_greater_than(120)
+    else
+      @movies
     end
-    @movies
   end
 
   protected

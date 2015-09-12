@@ -1,8 +1,14 @@
 <div class="content-box">
-  <h1>Search Results</h1>
+  <h2>Search Results</h2>
+
   <% @movies.each do |movie| %>
-    <p><%= movie.title %></p>
-    <p><%= movie.director %></p>
-    <p><%= movie.runtime_in_minutes %></p>
+      <h3><%= link_to movie.title, movie_path(movie) %></h3>
+      <ul>
+        <li><strong>Release Date:</strong> <%= formatted_date(movie.release_date) %></li>
+        <li><strong>Director:</strong> <%= movie.director %></li>
+        <li><strong>Duration:</strong> <%= movie.runtime_in_minutes %> minutes</li>
+        <li><strong>Description:</strong> <%= movie.description %></li>
+        <li><strong>Average Moving Rating:</strong> <%= movie.review_average %>/10</li>
+      </ul>
   <% end %>
-</div>
+  </div>
